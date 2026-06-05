@@ -1,0 +1,231 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+.page {
+  background: #f0f6fd;
+  min-height: 100vh;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: #1a2f4a;
+}
+.hero {
+  background: linear-gradient(135deg, #1a4a7a 0%, #2563a8 60%, #3a7bd5 100%);
+  padding: 40px 28px 32px;
+  text-align: center;
+}
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  color: #cce0f7;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.25);
+  margin-bottom: 18px;
+}
+.photo-slot {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: 3px solid rgba(255,255,255,0.4);
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+}
+.photo-slot i { font-size: 28px; color: rgba(255,255,255,0.6); }
+.photo-slot span { font-size: 10px; color: rgba(255,255,255,0.5); }
+.hero-name { font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 4px; }
+.hero-id { font-size: 13px; color: #a8cff0; margin-bottom: 6px; }
+.hero-prog { font-size: 13px; color: #cce0f7; margin-bottom: 16px; }
+.hero-divider { width: 40px; height: 2px; background: rgba(255,255,255,0.3); margin: 0 auto 16px; border-radius: 2px; }
+.hero-uni { font-size: 12px; color: #a8cff0; }
+.content { padding: 20px 16px 32px; display: flex; flex-direction: column; gap: 16px; }
+.card { background: #ffffff; border-radius: 14px; border: 1px solid #d0e4f7; padding: 18px; box-shadow: 0 2px 8px rgba(26,74,122,0.07); }
+.card-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: #5a8fc2; font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+.card-label i { font-size: 14px; }
+.system-title { font-size: 18px; font-weight: 700; color: #1a3d6b; margin-bottom: 8px; }
+.system-desc { font-size: 13px; color: #4a6a8a; line-height: 1.65; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
+.tag { background: #e8f2fd; color: #1a5a9a; font-size: 11px; font-weight: 600; padding: 4px 11px; border-radius: 20px; border: 1px solid #b8d4ef; }
+.feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 4px; }
+.feature-item { background: #f5f9ff; border: 1px solid #d0e4f7; border-radius: 10px; padding: 12px; display: flex; align-items: flex-start; gap: 10px; }
+.feat-icon { width: 32px; height: 32px; border-radius: 8px; background: #daeaf9; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.feat-icon i { font-size: 16px; color: #1a5a9a; }
+.feat-title { font-size: 12px; font-weight: 600; color: #1a3d6b; margin-bottom: 2px; }
+.feat-sub { font-size: 11px; color: #6a8aaa; line-height: 1.4; }
+.info-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #ecf3fb; }
+.info-row:last-child { border-bottom: none; padding-bottom: 0; }
+.info-row:first-child { padding-top: 0; }
+.info-icon { width: 34px; height: 34px; border-radius: 8px; background: #e6f1fb; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.info-icon i { font-size: 16px; color: #2563a8; }
+.info-label { font-size: 11px; color: #7a9ab8; margin-bottom: 2px; }
+.info-value { font-size: 13px; color: #1a3560; font-weight: 600; }
+.stack-row { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 4px; }
+.stack-chip { background: #f0f6fd; border: 1px solid #c4dcf4; border-radius: 8px; padding: 5px 12px; font-size: 12px; font-weight: 600; color: #1a4a7a; display: flex; align-items: center; gap: 5px; }
+.stack-chip i { font-size: 13px; color: #4a8bc8; }
+.section-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.academic-row { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid #ecf3fb; }
+.academic-row:last-child { border-bottom: none; padding-bottom: 0; }
+.academic-row:first-child { padding-top: 0; }
+.academic-icon { width: 34px; height: 34px; border-radius: 8px; background: #e6f1fb; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.academic-icon i { font-size: 16px; color: #2563a8; }
+.academic-role { font-size: 11px; color: #7a9ab8; margin-bottom: 3px; }
+.academic-name { font-size: 13px; color: #1a3560; font-weight: 600; }
+.visit-btn { display: flex; align-items: center; justify-content: center; gap: 8px; background: #2563a8; color: #ffffff; border-radius: 12px; padding: 14px; font-size: 14px; font-weight: 600; text-decoration: none; border: none; cursor: pointer; width: 100%; }
+.visit-btn i { font-size: 17px; }
+.footer-note { text-align: center; font-size: 11px; color: #7a9ab8; padding-top: 4px; }
+</style>
+
+<div class="page">
+  <div class="hero">
+    <div class="hero-badge">FYP Exhibition 2026</div>
+    <div class="photo-slot">
+      <i class="ti ti-user" aria-hidden="true"></i>
+      <span>Photo</span>
+    </div>
+    <div class="hero-name">Khairul Wafi Bin Mazelan</div>
+    <div class="hero-id">Matric No. 84230</div>
+    <div class="hero-prog">Bachelor of Software Engineering with Honours</div>
+    <div class="hero-divider"></div>
+    <div class="hero-uni">Faculty of Computer Science &amp; Information Technology &nbsp;|&nbsp; UNIMAS</div>
+  </div>
+
+  <div class="content">
+
+    <div class="card">
+      <div class="card-label"><i class="ti ti-device-laptop" aria-hidden="true"></i> About the System</div>
+      <div class="system-title">ReClaimQR-Based System</div>
+      <div class="system-desc">A web-based lost and found platform that uses QR code technology to help students and staff at UNIMAS quickly report, track, and recover lost personal belongings — without going through administrative offices.</div>
+      <div class="tag-row">
+        <span class="tag">Web-Based</span>
+        <span class="tag">QR Code</span>
+        <span class="tag">Campus-Focused</span>
+        <span class="tag">FYP 2026</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label"><i class="ti ti-layout-grid" aria-hidden="true"></i> Key Features</div>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <div class="feat-icon"><i class="ti ti-qrcode" aria-hidden="true"></i></div>
+          <div>
+            <div class="feat-title">QR Code Generator</div>
+            <div class="feat-sub">Pre-register belongings with unique QR tags</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feat-icon"><i class="ti ti-bell" aria-hidden="true"></i></div>
+          <div>
+            <div class="feat-title">Notification Alert</div>
+            <div class="feat-sub">Instant alerts when your item is found</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feat-icon"><i class="ti ti-message-circle" aria-hidden="true"></i></div>
+          <div>
+            <div class="feat-title">In-App Messaging</div>
+            <div class="feat-sub">Direct chat between finder and owner</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feat-icon"><i class="ti ti-circle-check" aria-hidden="true"></i></div>
+          <div>
+            <div class="feat-title">Claiming Process</div>
+            <div class="feat-sub">Verified handover with proof upload</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-two-col">
+      <div class="card">
+        <div class="card-label"><i class="ti ti-code" aria-hidden="true"></i> Tech Stack</div>
+        <div class="stack-row">
+          <div class="stack-chip"><i class="ti ti-brand-php" aria-hidden="true"></i>PHP</div>
+          <div class="stack-chip"><i class="ti ti-brand-javascript" aria-hidden="true"></i>JS</div>
+          <div class="stack-chip"><i class="ti ti-brand-css3" aria-hidden="true"></i>CSS</div>
+          <div class="stack-chip"><i class="ti ti-database" aria-hidden="true"></i>MySQL</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label"><i class="ti ti-server" aria-hidden="true"></i> Hosting</div>
+        <div class="stack-row">
+          <div class="stack-chip"><i class="ti ti-cloud" aria-hidden="true"></i>GB Network</div>
+          <div class="stack-chip"><i class="ti ti-world" aria-hidden="true"></i>Live Server</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label"><i class="ti ti-id-badge" aria-hidden="true"></i> Developer Info</div>
+      <div class="info-row">
+        <div class="info-icon"><i class="ti ti-user" aria-hidden="true"></i></div>
+        <div>
+          <div class="info-label">Full Name</div>
+          <div class="info-value">Khairul Wafi Bin Mazelan</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon"><i class="ti ti-school" aria-hidden="true"></i></div>
+        <div>
+          <div class="info-label">Programme</div>
+          <div class="info-value">B.Sc. Software Engineering (Hons)</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon"><i class="ti ti-building" aria-hidden="true"></i></div>
+        <div>
+          <div class="info-label">Faculty</div>
+          <div class="info-value">FCSIT, UNIMAS</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon"><i class="ti ti-hash" aria-hidden="true"></i></div>
+        <div>
+          <div class="info-label">Matric No.</div>
+          <div class="info-value">84230</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon"><i class="ti ti-calendar" aria-hidden="true"></i></div>
+        <div>
+          <div class="info-label">Session</div>
+          <div class="info-value">2025 / 2026</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label"><i class="ti ti-users" aria-hidden="true"></i> Academic Panel</div>
+      <div class="academic-row">
+        <div class="academic-icon"><i class="ti ti-chalkboard" aria-hidden="true"></i></div>
+        <div>
+          <div class="academic-role">Project Supervisor</div>
+          <div class="academic-name">Madam Noor Hazlini Binti Borhan</div>
+        </div>
+      </div>
+      <div class="academic-row">
+        <div class="academic-icon"><i class="ti ti-clipboard-check" aria-hidden="true"></i></div>
+        <div>
+          <div class="academic-role">Project Examiner</div>
+          <div class="academic-name">Dr. Nuha Binti Loling Othman</div>
+        </div>
+      </div>
+    </div>
+
+    <a class="visit-btn" href="http://maverick.gbnetwork.com" target="_blank">
+      <i class="ti ti-external-link" aria-hidden="true"></i>
+      Visit Live System
+    </a>
+
+    <div class="footer-note">Scan the QR on the poster to view this page &nbsp;·&nbsp; FYP Exhibition 2026, UNIMAS</div>
+
+  </div>
+</div>
